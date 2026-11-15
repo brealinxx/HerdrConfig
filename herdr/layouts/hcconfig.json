@@ -1,0 +1,19 @@
+{
+  "id": "hcconfig-root",
+  "type": "row",
+  "background": "canvas",
+  "preview": "layouts/hcconfig.svg",
+  "divider": {"width":1,"color":"border"},
+  "children": [
+    {"id":"hcconfig-left","type":"column","size":{"px":290},"min":230,"children":[
+      {"id":"hcconfig-spaces","type":"block","size":{"px":180},"content":{"mod":"spaces"}},
+      {"id":"hcconfig-team","type":"block","content":{"mod":"hcconfig-team","props":{"launcher":""}}}
+    ]},
+    {"id":"hcconfig-work","type":"column","children":[
+      {"id":"tabs","type":"block","size":{"px":42},"content":{"mod":"tabs"}},
+      {"id":"hcconfig-terminal","type":"block","content":{"tab":"active","pane":{"gap":6,"radius":6,"lone":true,"border":{"width":1,"color":"border"},"focus":{"width":1,"color":"accent"},"header":{"content":{"mod":"pane"},"height":30,"position":"top","reveal":"always"}}}},
+      {"id":"hcconfig-status","type":"block","size":{"px":28},"content":{"mod":"workspace-status"}}
+    ]},
+    {"id":"hcconfig-git","type":"block","size":{"px":480},"min":320,"max":1000,"content":{"mod":"hcconfig-git"}}
+  ]
+}

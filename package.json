@@ -1,0 +1,9 @@
+{
+  "name": "herdrconfig",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:git": "node tests/git-panel/test-git-panel.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

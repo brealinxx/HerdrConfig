@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "codex": { "command": ["codex", "--no-daemon"], "description": "Interactive Codex; inherits your model and permission settings" },
+    "claude": { "command": ["claude"], "description": "Interactive Claude Code; install and authenticate separately" }
+  },
+  "roles": {
+    "project-manager": "codex",
+    "planner": "codex",
+    "executor": "codex",
+    "reviewer": "codex",
+    "version-controller": "codex"
+  }
+}

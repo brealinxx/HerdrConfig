@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "claude-planner": { "command": ["claude", "--model", "sonnet"] },
+    "codex-review": { "command": ["codex", "--no-daemon", "--sandbox", "read-only"] }
+  },
+  "roles": {
+    "planner": "claude-planner",
+    "reviewer": "codex-review"
+  }
+}

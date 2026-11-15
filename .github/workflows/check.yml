@@ -1,0 +1,25 @@
+name: Configuration checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  workflow:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Isolated Git workflow tests
+        shell: pwsh
+        run: ./tests/Test-Workflow.ps1
+      - name: Git panel data regressions
+        run: node tests/git-panel/test-git-panel.mjs
+      - name: Whitespace checks
+        shell: pwsh
+        run: |
+          git diff --check
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
