@@ -53,7 +53,9 @@ Locally edited managed files cause installation/removal to stop without overwrit
 
 ## Start a project
 
-In the personal layout, enter the request, optionally select a local project and team JSON, then click **Start team**. The PM starts in a new project space. Child roles appear on demand; clicking a role session opens its terminal.
+In the personal layout, expand **New task**, enter the request, optionally select a local project and team JSON, then click **Start team**. The PM starts in a new project space.
+
+The sidebar groups real agent sessions under their spaces. Working sessions have a native pulsing dot; blocked/done states remain visible, idle sessions are folded, and unstarted roles have no placeholder cards. Click a session to select its space/tab and peek at its terminal. Roles come from the launcher's labels; other agents show their actual tool name. Use **Hide Git** in the sidebar (or **Hide** in the Git panel) to reclaim terminal space; **Show Git** restores it. Visibility and expanded sections are remembered by Herdr.
 
 From a terminal, use a UTF-8 request file so quoting and multiline text remain unambiguous:
 
@@ -138,6 +140,7 @@ See [integration notes](integrations/skillshare/README.md). skillshare can distr
 pwsh -NoProfile -File tests/Test-Workflow.ps1
 pwsh -NoProfile -File tests/Test-Install.ps1
 pwsh -NoProfile -File tests/git-panel/Test-GitPanel.ps1
+node tests/test-sidebar.mjs
 herdr-app check herdr/mods/hcconfig-team
 herdr-app check herdr/mods/hcconfig-git
 git diff --check

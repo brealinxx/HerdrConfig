@@ -11,3 +11,4 @@
 - 配置/安装需支持预览和回滚。运行记录、凭据、机器路径、日志不提交。不能读取或修改其他项目的真实任务数据来做测试。
 - 验证：pwsh -NoProfile -File tests/Test-Workflow.ps1；每个 mod 运行 herdr-app check，并实际查看窗口。区分模拟、真实启动和真实 UI 验证。
 - README 和 CHANGELOG 记录行为及限制，未发布使用 Unreleased。
+- 侧栏按 space 展示真实会话，角色仅取显式 herdrconfig.role 标签；普通 agent 不猜测职责，空闲会话默认折叠。工作动画使用原生 loop/frames，不用定时器触发重绘；点击须重新核对会话并定位正确 space/tab。Git 隐藏后必须保留可见恢复入口。

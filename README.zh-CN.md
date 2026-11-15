@@ -53,7 +53,9 @@ pwsh -NoProfile -File scripts/Install.ps1 -Remove
 
 ## 在项目中开工
 
-在个人布局中输入任务，按需选择本机项目目录和 team JSON，点击 **Start team**。PM 在新的项目 space 中启动，其他角色按需分派；点击角色会话即可查看终端。
+在个人布局中展开 **New task**，输入任务，按需选择本机项目目录和 team JSON，点击 **Start team**。PM 在新的项目 space 中启动。
+
+侧栏按 space 分组显示真实 agent 会话：工作中的小圆点使用原生呼吸动画，阻塞/完成状态保持可见，空闲会话默认折叠，未启动角色不占位。点击会话会定位所属 space/tab 并打开终端预览。职责来自启动器标签，其他 agent 显示实际工具名称。点击左侧 **Hide Git** 或右侧 **Hide** 收起 Git，左侧 **Show Git** 可恢复；Herdr 会记住显示和展开状态。
 
 命令行使用 UTF-8 请求文件，避免多行文字和引号歧义：
 
@@ -138,6 +140,7 @@ Git 调用使用参数数组、字面路径、禁用外部 diff/textconv，并�
 pwsh -NoProfile -File tests/Test-Workflow.ps1
 pwsh -NoProfile -File tests/Test-Install.ps1
 pwsh -NoProfile -File tests/git-panel/Test-GitPanel.ps1
+node tests/test-sidebar.mjs
 herdr-app check herdr/mods/hcconfig-team
 herdr-app check herdr/mods/hcconfig-git
 git diff --check

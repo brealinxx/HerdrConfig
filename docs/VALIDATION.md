@@ -2,6 +2,12 @@
 
 Date: **2026-11-15**. This records observed checks, not a claim of full multi-agent or cross-platform acceptance.
 
+## Compact sidebar follow-up / 紧凑侧栏后续验证
+
+The revised sidebar was deployed and viewed in the running Herdr window. Working-session indicators, the folded task form, Git hide/show with terminal expansion, and reopening the form were exercised through native app commands and screenshots. Sidebar simulation checks cover space/tab ownership, parent/remote routing, finished sessions, idle folding data, stale clicks, agent navigation and toggles. The 19 installer assertions and 12 Git regression groups passed again; both native mods and populated Git states passed `check`. Mouse input and actual remote navigation remain unverified.
+
+新版侧栏已部署并实际查看，通过应用命令和截图检查工作状态圆点、表单折叠/展开、Git 收起/恢复及终端扩展。侧栏模拟覆盖 space/tab 归属、父子/远端映射、结束/空闲状态、过期点击与定位；19 项安装检查、12 组 Git 回归及原生 mod 检查再次通过。未验证真实鼠标输入和实际远端定位。
+
 ## English
 
 | Area | Actual result |

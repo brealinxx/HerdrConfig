@@ -1,6 +1,6 @@
 import { View, div } from "gpui-kit";
 import { v_flex, h_flex, InputState, Input, Scrollbar, v_virtual_list } from "gpui-base";
-import { exec, readTextFile, spaces, panes, focused, theme, settings, nextCommand } from "herdr";
+import { exec, readTextFile, spaces, panes, focused, theme, settings, nextCommand, run, layout } from "herdr";
 import { GitReader, RequestGate, PAGE_SIZE, FILE_LIMIT, clip, label, locate, locationKey } from "./git.js";
 
 const GROUP = { staged: "Staged", unstaged: "Unstaged", untracked: "Untracked", conflict: "Conflict", diff: "Changed" };
@@ -203,7 +203,8 @@ export default class GitPanel extends View {
     const controls = v_flex().id("git-controls").absolute().inset_0().min_w(0).overflow_y_scroll().gap(5).p(2)
       .child(h_flex().gap(5).items_center().flex_none()
         .child(div().font_semibold().child("Git · Read only"))
-        .child(div().flex_1()).child(this.button("git-refresh", pending ? "Refreshing…" : "Refresh", cx => this.command("refresh", cx))))
+        .child(div().flex_1()).child(this.button("git-refresh", pending ? "Refreshing…" : "Refresh", cx => this.command("refresh", cx)))
+        .when(layout()?.id === "hcconfig-root", el => el.child(this.button("git-collapse", "Hide", () => run("layout.hide", { id: "hcconfig-git" })))))
       .child(div().flex_none().text_color(t.muted).child(label(this.repo?.root || this.lastLocation?.cwd || "No project folder")))
       .child(div().flex_none().text_color(t.dim).child(`Branch: ${label(this.repo?.branch || "—")}  ${this.lastLocation?.on ? "Machine: " + label(this.lastLocation.on) : "Local"}`))
       .child(h_flex().gap(5).flex_none().children([["history", "History"], ["worktree", "Worktree"], ["compare", "Compare"]].map(([mode, text]) => this.button(`git-${mode}`, text, cx => this.switchMode(mode, cx), this.mode === mode))))

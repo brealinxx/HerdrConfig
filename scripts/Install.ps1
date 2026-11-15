@@ -74,7 +74,13 @@ try {
         $payload[$relative] = [IO.File]::ReadAllBytes($file.FullName)
     }
     $layout = Get-Content -Raw -LiteralPath "$source/herdr/layouts/hcconfig.json" | ConvertFrom-Json -AsHashtable
-    $layout.children[0].children[1].content.props.launcher = (Join-Path $source 'scripts/Herdr.ps1').Replace('\','/')
+    function Set-Launcher($Node) {
+        if ($Node.ContainsKey('content') -and $Node.content.mod -eq 'hcconfig-team') {
+            $Node.content.props.launcher = (Join-Path $source 'scripts/Herdr.ps1').Replace('\','/')
+        }
+        if ($Node.ContainsKey('children')) { foreach ($child in $Node.children) { Set-Launcher $child } }
+    }
+    Set-Launcher $layout
     $payload['layouts/hcconfig.json'] = [Text.Encoding]::UTF8.GetBytes(($layout | ConvertTo-Json -Depth 30))
     $payload['layouts/hcconfig.svg'] = [IO.File]::ReadAllBytes("$source/herdr/layouts/hcconfig.svg")
     foreach ($relative in $payload.Keys) { [void](Assert-Owned $relative) }

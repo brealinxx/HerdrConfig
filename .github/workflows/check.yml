@@ -18,6 +18,8 @@ jobs:
         run: ./tests/Test-Workflow.ps1
       - name: Git panel data regressions
         run: node tests/git-panel/test-git-panel.mjs
+      - name: Sidebar routing and controls
+        run: node tests/test-sidebar.mjs
       - name: Whitespace checks
         shell: pwsh
         run: |

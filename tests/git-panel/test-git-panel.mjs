@@ -70,7 +70,7 @@ async function controllerTests({ repo, empty, readExec, readText }) {
     Input: { new: element }, Scrollbar: { vertical: element },
     v_virtual_list: (_id, count, _height, _key, render) => { render({ start: 0, end: count }); return element(); },
     exec, readTextFile: readText, spaces: space, panes: () => [], focused: focus,
-    theme: () => ({}), settings: () => ({}), nextCommand: () => new Promise(() => {}), ...git };
+    theme: () => ({}), settings: () => ({}), layout: () => ({id:"hcconfig-root"}), run: () => {}, nextCommand: () => new Promise(() => {}), ...git };
   const Panel = new Function(...Object.keys(values), source)(...Object.values(values));
   const cx = { focus_handle: () => ({ focus() {} }), notify() {}, stop_propagation() {}, sleep: () => Promise.resolve(),
     spawn: callback => { const task = callback(cx); Promise.resolve(task).catch(e => backgroundErrors.push(e)); return task; } };

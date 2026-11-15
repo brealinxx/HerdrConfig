@@ -5,10 +5,7 @@
   "preview": "layouts/hcconfig.svg",
   "divider": {"width":1,"color":"border"},
   "children": [
-    {"id":"hcconfig-left","type":"column","size":{"px":290},"min":230,"children":[
-      {"id":"hcconfig-spaces","type":"block","size":{"px":180},"content":{"mod":"spaces"}},
-      {"id":"hcconfig-team","type":"block","content":{"mod":"hcconfig-team","props":{"launcher":""}}}
-    ]},
+    {"id":"hcconfig-left","type":"block","size":{"px":260},"min":220,"max":420,"content":{"mod":"hcconfig-team","props":{"launcher":""}}},
     {"id":"hcconfig-work","type":"column","children":[
       {"id":"tabs","type":"block","size":{"px":42},"content":{"mod":"tabs"}},
       {"id":"hcconfig-terminal","type":"block","content":{"tab":"active","pane":{"gap":6,"radius":6,"lone":true,"border":{"width":1,"color":"border"},"focus":{"width":1,"color":"accent"},"header":{"content":{"mod":"pane"},"height":30,"position":"top","reveal":"always"}}}},

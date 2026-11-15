@@ -57,7 +57,7 @@ herdr-app do hcconfig-git.refresh
 
 Actual UI acceptance belongs to the main agent. Check the `hcconfig` layout at 480 px and 320 px, both themes, real InputState typing, history paging/selection, scrolling, empty repos, project/worktree switching during loading, staged/unstaged previews, compare modes and repeated refreshes. Native `check` verifies eager controls, not layout/paint, real keyboard/mouse interaction, deferred rows or eventual async states. No actual UI acceptance is claimed here.
 
-Stable candidate SHA-256:
+Initial implementation SHA-256 (historical; the later sidebar update adds the Hide button to `main.js`):
 
 | File | SHA-256 |
 | --- | --- |
